@@ -1,17 +1,36 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
+# Function to configure the Kali Linux environment
 configure_kali() {
     vagrant init kali-linux/rolling
+    cat <<EOF >Vagrantfile
 Vagrant.configure("2") do |config|
-    config.vm.box = "kali-linux/rolling"
-    config.vm.provider "virtualbox" do |vb|
-        vb.memory = "2048"
-    end
-    EOF
-        vagrant up
-        vagrant ssh
+  config.vm.box = "kali-linux/rolling"
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+  end
+end
+EOF
+    vagrant up
+    vagrant ssh
 }
 
+# Function to configure the Ubuntu environment
+configure_ubuntu() {
+    vagrant init ubuntu/bionic64
+    cat <<EOF >Vagrantfile
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+  end
+end
+EOF
+    vagrant up
+    vagrant ssh
+}
+
+# Main menu
 while true; do
     clear
     echo "Select an environment to configure:"
@@ -34,4 +53,3 @@ while true; do
             ;;
     esac
 done
-
