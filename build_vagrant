@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+configure_kali() {
+    vagrant init kali-linux/rolling
+Vagrant.configure("2") do |config|
+    config.vm.box = "kali-linux/rolling"
+    config.vm.provider "virtualbox" do |vb|
+        vb.memory = "2048"
+    end
+    EOF
+        vagrant up
+        vagrant ssh
+}
+
+while true; do
+    clear
+    echo "Select an environment to configure:"
+    echo "1. Kali Linux"
+    echo "2. Ubuntu"
+    echo "3. Exit"
+    read -p "Enter your choice (1/2/3): " choice
+    case $choice in
+        1)
+            configure_kali
+            ;;
+        2)
+            configure_ubuntu
+            ;;
+        3)
+            exit 0
+            ;;
+        *)
+            echo "Invalid choice. Please enter 1, 2, or 3."
+            ;;
+    esac
+done
+
