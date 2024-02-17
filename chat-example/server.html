@@ -1,0 +1,84 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #chat-container {
+            max-width: 600px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        .message {
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            word-wrap: break-word;
+        }
+
+        .sender {
+            background-color: #5cb85c;
+            color: #fff;
+            text-align: right;
+        }
+
+        .receiver {
+            background-color: #4285f4;
+            color: #fff;
+            text-align: left;
+        }
+
+        #form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container"></div>
+
+    <form id="form" action="">
+        <input id="messageInput" autocomplete="off" /><button>Send</button>
+    </form>
+
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+
+            if (message !== '') {
+                socket.emit('chat message', { message, type: 'sender' });
+                input.value = '';
+            }
+        });
+
+        socket.on('chat message', function(data) {
+            const chatContainer = document.getElementById('chat-container');
+            const div = document.createElement('div');
+            div.classList.add('message', data.type);
+
+            div.textContent = data.message;
+            chatContainer.appendChild(div);
+
+            // Scroll to the bottom of the chat container
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        });
+    </script>
+</body>
+</html>

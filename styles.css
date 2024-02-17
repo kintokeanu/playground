@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .login-container {
+    text-align: center;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+}
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  /* Existing CSS styles */
+
+.garbage-bin {
+    position: relative;
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .bin-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .falling-char {
+    position: absolute;
+    animation: fall 1s ease-in-out forwards;
+  }
+  
+  @keyframes fall {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(200px); /* Adjust the distance as needed */
+      opacity: 0;
+    }
+  }
+  

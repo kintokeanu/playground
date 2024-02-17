@@ -1,0 +1,17 @@
+{"level":"info","message":"Welcome to the Bursary App"}
+{"level":"info","message":"Applicants retrieved successfully"}
+{"level":"info","message":"Welcome to the Bursary App"}
+{"level":"info","message":"Applicants retrieved successfully"}
+{"level":"info","message":"Welcome to the Bursary App"}
+{"level":"info","message":"New applicant added: ${name}"}
+{"level":"info","message":"New applicant added: ${name}"}
+{"level":"info","message":"New applicant added: ${name}"}
+{"level":"info","message":"New applicant added: ${name}"}
+{"level":"info","message":"New applicant added: ${name}"}
+{"level":"info","message":"New applicant added: ${name}"}
+{"level":"info","message":"New applicant added: ${name}"}
+{"level":"info","message":"New applicant added: ${name}"}
+{"level":"info","message":"New applicant added: ${name}"}
+{"level":"info","message":"New applicant added: ${name}"}
+{"level":"info","message":"Applicants retrieved successfully"}
+{"level":"error","message":"Error generating report ${error}"}
